@@ -1,5 +1,12 @@
 import { createServer } from 'http';
 import Repository from './repository.js';
+/*
+// Avant de gérer les requêtes
+accessControlConfig(req, res);
+if (!await CORS_Preflight(req, res))
+    if (!await handleContactsRequest(req, res))
+        response(res, 404);
+*/
 
 function getPayload(req, res) {
     return new Promise(resolve => {
