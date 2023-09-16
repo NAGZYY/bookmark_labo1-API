@@ -26,9 +26,9 @@ function response(res, status, data = null) {
     return true;
 }
 async function handleContactsRequest(req, res) {
-    let contactsRepository = new Repository("./contacts.json");
+    let contactsRepository = new Repository("./bookmarks.json");
     let contact = null;
-    if (req.url == "/api/contacts") {
+    if (req.url == "/api/bookmarks") {
         switch (req.method) {
             case "GET":
                 return response(res, 200, JSON.stringify(contactsRepository.getAll()));
@@ -50,7 +50,7 @@ async function handleContactsRequest(req, res) {
                     return response(res, 400);
         }
     } else {
-        if (req.url.includes("/api/contacts/")) {
+        if (req.url.includes("/api/bookmarks")) {
             let id = parseInt(req.url.substring(req.url.lastIndexOf("/") + 1, req.url.length));
             switch (req.method) {
                 case "GET":
